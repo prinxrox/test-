@@ -1,0 +1,69 @@
+<%= form_with(model: house, local: true) do |form| %>
+  <% if house.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(house.errors.count, "error") %> prohibited this house from being saved:</h2>
+
+      <ul>
+      <% house.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :location %>
+    <%= form.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sqft %>
+    <%= form.number_field :sqft %>
+  </div>
+
+  <div class="field">
+    <%= form.label :yearbuilt %>
+    <%= form.text_field :yearbuilt %>
+  </div>
+
+  <div class="field">
+    <%= form.label :style %>
+    <%= form.text_field :style %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :floors %>
+    <%= form.number_field :floors %>
+  </div>
+
+  <div class="field">
+    <%= form.label :basement %>
+    <%= form.check_box :basement %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currentowner %>
+    <%= form.text_field :currentowner %>
+  </div>
+
+  <% if admin_signed_in? %>
+  <div class="field">
+    <%= form.label :real_estate_company_id %>
+    <%= form.select :real_estate_company_id, RealEstateCompany.all.collect { |c| [c.name, c.id] }%>
+  </div>
+
+  <div class="field">
+    <%= form.label :realtor_id %>
+    <%= form.select :realtor_id, Realtor.all.collect { |c| [c.name, c.id] }%>
+  </div>
+
+  <% end %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

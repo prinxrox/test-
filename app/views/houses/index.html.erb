@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Houses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Sqft</th>
+      <th>Yearbuilt</th>
+      <th>Style</th>
+      <th>Price</th>
+      <th>Floors</th>
+      <th>Basement</th>
+      <th>Currentowner</th>
+      <th>Real estate company</th>
+      <th>Realtor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @houses.each do |house| %>
+      <tr>
+        <td><%= house.location %></td>
+        <td><%= house.sqft %></td>
+        <td><%= house.yearbuilt %></td>
+        <td><%= house.style %></td>
+        <td><%= house.price %></td>
+        <td><%= house.floors %></td>
+        <td><%= house.basement %></td>
+        <td><%= house.currentowner %></td>
+        <td><%= house.real_estate_company_id %></td>
+        <td><%= house.realtor_id %></td>
+        <td><%= link_to 'Show', house %></td>
+        <td><%= link_to 'Edit', edit_house_path(house) %></td>
+        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New House', new_house_path %>

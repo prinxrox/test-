@@ -1,0 +1,9 @@
+<% if hunter_signed_in? %>
+  <%= link_to 'Home', hunters_path, :class => "nav-link" %>
+<% elsif realtor_signed_in? %>
+  <%= link_to 'Home', realtors_path, :class => "nav-link" %>
+<% elsif admin_signed_in? %>
+  <%= link_to 'Home', admins_path, :class => "nav-link" %>
+<% else %>
+  <%= link_to 'Home', root_path, :class => "nav-link" %>
+<% end %>
