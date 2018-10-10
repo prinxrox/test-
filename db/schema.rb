@@ -72,14 +72,14 @@ ActiveRecord::Schema.define(version: 2018_10_07_005059) do
   create_table "realtors", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "name"
+    t.string "phone"
+    t.integer "real_estate_company_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.string "phone"
-    t.integer "real_estate_company_id"
     t.index ["email"], name: "index_realtors_on_email", unique: true
     t.index ["real_estate_company_id"], name: "index_realtors_on_real_estate_company_id"
     t.index ["reset_password_token"], name: "index_realtors_on_reset_password_token", unique: true
